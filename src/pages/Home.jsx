@@ -4,7 +4,7 @@ import PokemonCard from '../components/PokemonCard';
 import { Container } from '@mui/system';
 import { Grid } from '@mui/material';
 
-export const Home = () => {
+export default function Home() {
   return (
     <div>
       <Navbar />
@@ -26,4 +26,4 @@ export const Home = () => {
       </Container>
     </div>
   );
-};
+}
