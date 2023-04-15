@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import axios from 'axios';
 import Navbar from '../components/NavBar';
 import PokemonCard from '../components/PokemonCard';
@@ -6,10 +6,16 @@ import { Container } from '@mui/system';
 import { Grid } from '@mui/material';
 
 export default function Home() {
-  axios
-    .get('https://pokeapi.co/api/v2/pokemon?limit=20')
-    .then((res) => console.log(res))
-    .catch((err) => console.log(err));
+  useEffect(() => {
+    getPokemons();
+  }, []);
+
+  const getPokemons = () => {
+    axios
+      .get('https://pokeapi.co/api/v2/pokemon?limit=20')
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
+  };
 
   return (
     <div>
