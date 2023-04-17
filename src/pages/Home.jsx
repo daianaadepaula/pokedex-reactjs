@@ -13,10 +13,16 @@ export default function Home() {
   }, []);
 
   const getPokemons = () => {
-    axios
-      .get('https://pokeapi.co/api/v2/pokemon?limit=20')
-      .then((res) => setPokemons(res.data.results))
+    let endpoints = [];
+    for (let i = 1; i < 20; i++) {
+      endpoints.push(`https://pokeapi.co/api/v2/pokemon/${i}/`);
+    }
+
+    let response = axios
+      .all(endpoints.map((endpoint) => axios.get(endpoint)))
+      .then((res) => setPokemons(res))
       .catch((err) => console.log(err));
+    return response;
   };
 
   return (
@@ -26,7 +32,7 @@ export default function Home() {
         <Grid container>
           {pokemons.map((pokemon, key) => (
             <Grid item xs={3} key={key}>
-              <PokemonCard name={pokemon.name} />
+              <PokemonCard name={pokemon.data.name} />
             </Grid>
           ))}
         </Grid>
