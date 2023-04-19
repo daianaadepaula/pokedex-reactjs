@@ -14,7 +14,7 @@ export default function Home() {
 
   const getPokemons = () => {
     let endpoints = [];
-    for (let i = 1; i < 20; i++) {
+    for (let i = 1; i < 25; i++) {
       endpoints.push(`https://pokeapi.co/api/v2/pokemon/${i}/`);
     }
 
