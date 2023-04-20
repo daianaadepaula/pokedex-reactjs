@@ -18,16 +18,28 @@ export default function Home() {
       endpoints.push(`https://pokeapi.co/api/v2/pokemon/${i}/`);
     }
 
-    let response = axios
+    axios
       .all(endpoints.map((endpoint) => axios.get(endpoint)))
       .then((res) => setPokemons(res))
       .catch((err) => console.log(err));
-    return response;
+  };
+
+  const pokemonFilter = (name) => {
+    let filterPokemons = [];
+    if (name === '') {
+      getPokemons();
+    }
+    for (let i in pokemons) {
+      if (pokemons[i].data.name.includes(name)) {
+        filterPokemons.push(pokemons[i]);
+      }
+    }
+    setPokemons(filterPokemons);
   };
 
   return (
     <div>
-      <Navbar />
+      <Navbar pokemonFilter={pokemonFilter} />
       <Container maxWidth="false">
         <Grid container spacing={3}>
           {pokemons.map((pokemon, key) => (
