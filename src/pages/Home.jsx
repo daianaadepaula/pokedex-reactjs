@@ -50,7 +50,11 @@ export default function Home() {
               <Grid item xs={12} sm={6} md={4} lg={2} key={key}>
                 <PokemonCard
                   name={pokemon.data.name}
-                  image={pokemon.data.sprites.front_default}
+                  image={
+                    pokemon.data['sprites']['versions']['generation-v'][
+                      'black-white'
+                    ]['animated']['front_default']
+                  }
                   types={pokemon.data.types}
                 />
               </Grid>

@@ -9,12 +9,9 @@ Use search to explore all the pokemon data you need in one place, by type, weakn
 
 Before you begin, ensure you have met the following requirements:
 
-* [Git](https://git-scm.com/downloads "Download Git") must be installed on your operating system.
+- [Git](https://git-scm.com/downloads 'Download Git') must be installed on your operating system.
 
--[Create React App](https://legacy.reactjs.org/docs/create-a-new-react-app.html)
--[Axios](https://axios-http.com/docs/intro)
--[Material UI](https://mui.com/material-ui/getting-started/installation/)
--[npm](npm install @mui/icons-material)
+-[Create React App](https://legacy.reactjs.org/docs/create-a-new-react-app.html) -[Axios](https://axios-http.com/docs/intro) -[Router](https://reactrouter.com/en/main/start/overview) -[Material UI](https://mui.com/material-ui/getting-started/installation/) -[npm](npm install @mui/icons-material)
 <br />
 
 ## Technologies
@@ -22,8 +19,7 @@ Before you begin, ensure you have met the following requirements:
 This project was developed with the following technologies:
 
 - [PokeApi](https://pokeapi.co/)
-<br />
-
+  <br />
 
 ### Run Locally
 
@@ -40,6 +36,7 @@ Windows:
 ```bash
 git clone https://github.com/daianaadepaula/
 ```
+
 <br />
 
 ### `npm start`
@@ -72,8 +69,9 @@ We thank the following people who contributed to this project:
 <br/>
 
 ## License
+
 This project is **free to use** and does not contains any license.
 
-[![NPM](https://img.shields.io/npm/l/react)](https://github.com/daianaadepaula/) 
+[![NPM](https://img.shields.io/npm/l/react)](https://github.com/daianaadepaula/)
 
 <br />
