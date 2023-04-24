@@ -3,11 +3,13 @@ import axios from 'axios';
 import Navbar from '../components/NavBar';
 import PokemonCard from '../components/PokemonCard';
 import { Container } from '@mui/system';
-import { Grid } from '@mui/material';
+import { Box, Grid } from '@mui/material';
 import { Skeletons } from '../components/Skeletons';
+import { useNavigate } from 'react-router-dom';
 
-export default function Home() {
+export default function Home({ setPokemonData }) {
   const [pokemons, setPokemons] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     getPokemons();
@@ -38,6 +40,11 @@ export default function Home() {
     setPokemons(filterPokemons);
   };
 
+  const pokemonPickHandler = (pokemonData) => {
+    setPokemonData(pokemonData);
+    navigate('/profile');
+  };
+
   return (
     <div>
       <Navbar pokemonFilter={pokemonFilter} />
@@ -48,15 +55,17 @@ export default function Home() {
           ) : (
             pokemons.map((pokemon, key) => (
               <Grid item xs={12} sm={6} md={4} lg={2} key={key}>
-                <PokemonCard
-                  name={pokemon.data.name}
-                  image={
-                    pokemon.data['sprites']['versions']['generation-v'][
-                      'black-white'
-                    ]['animated']['front_default']
-                  }
-                  types={pokemon.data.types}
-                />
+                <Box onClick={() => pokemonPickHandler(pokemon.data)}>
+                  <PokemonCard
+                    name={pokemon.data.name}
+                    image={
+                      pokemon.data['sprites']['versions']['generation-v'][
+                        'black-white'
+                      ]['animated']['front_default']
+                    }
+                    types={pokemon.data.types}
+                  />
+                </Box>
               </Grid>
             ))
           )}
