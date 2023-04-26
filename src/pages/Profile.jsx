@@ -1,13 +1,32 @@
 import React from 'react';
 import Navbar from '../components/NavBar';
-import { Container } from '@mui/material';
+import { Box, Container, Paper, Typography } from '@mui/material';
+import PokemonTable from '../components/PokemonTable';
 
 export const Profile = ({ pokemonData }) => {
+  const { name, sprites } = pokemonData;
   console.log(pokemonData);
   return (
-    <Container maxWidth="md">
+    <>
       <Navbar hideSearch />
-      Profile
-    </Container>
+      <Container maxWidth="md">
+        <Paper elevation={3}>
+          <Box
+            display="flex"
+            flexDirection="column"
+            alignContent="center"
+            p={5}
+          >
+            <Typography variant="h5">{name}</Typography>
+            <Box
+              component="img"
+              src={sprites.other.dream_world.front_default}
+              width="25%"
+            />
+            <PokemonTable />
+          </Box>
+        </Paper>
+      </Container>
+    </>
   );
 };

@@ -58,11 +58,7 @@ export default function Home({ setPokemonData }) {
                 <Box onClick={() => pokemonPickHandler(pokemon.data)}>
                   <PokemonCard
                     name={pokemon.data.name}
-                    image={
-                      pokemon.data['sprites']['versions']['generation-v'][
-                        'black-white'
-                      ]['animated']['front_default']
-                    }
+                    image={pokemon.data.sprites.other.dream_world.front_default}
                     types={pokemon.data.types}
                   />
                 </Box>
