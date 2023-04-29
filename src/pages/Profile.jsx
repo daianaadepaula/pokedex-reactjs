@@ -1,6 +1,6 @@
 import React from 'react';
 import Navbar from '../components/NavBar';
-import { Box, Container, Paper, Typography } from '@mui/material';
+import { Box, Container, Divider, Paper, Typography } from '@mui/material';
 import PokemonTable from '../components/PokemonTable';
 import { firstUppercase } from '../helper';
 
@@ -21,6 +21,12 @@ export const Profile = ({ pokemonData }) => {
               />
             </Box>
             <PokemonTable pokemonData={pokemonData} />
+          </Box>
+          <Box width="100%" p={5}>
+            <Divider>Variações</Divider>
+            <Box component="img" src={sprites.front_female} width="31%" />
+            <Box component="img" src={sprites.front_shiny} width="31%" />
+            <Box component="img" src={sprites.front_shiny_female} width="31%" />
           </Box>
         </Paper>
       </Container>
