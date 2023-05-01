@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Navbar from '../components/NavBar';
 import {
   Box,
@@ -10,9 +10,22 @@ import {
 } from '@mui/material';
 import PokemonTable from '../components/PokemonTable';
 import { firstUppercase } from '../helper';
+import { useNavigate } from 'react-router-dom';
 
 export const Profile = ({ pokemonData }) => {
-  const { name, sprites, moves } = pokemonData;
+  const { name, sprites, moves } = pokemonData || {};
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!pokemonData) {
+      navigate('/');
+    }
+  }, []);
+
+  if (!pokemonData) {
+    return null;
+  }
+
   return (
     <>
       <Navbar hideSearch />
@@ -20,9 +33,13 @@ export const Profile = ({ pokemonData }) => {
         <Paper elevation={3}>
           <Box
             display="flex"
-            flexDirection="row"
             p={5}
             justifyContent="space-between"
+            marginBottom="15px"
+            sx={{
+              flexDirection: { xs: 'column', md: 'row' },
+              alignItems: 'center',
+            }}
           >
             <Box display="flex" flexDirection="column" m={5}>
               <Typography variant="h3" marginBottom={10}>
